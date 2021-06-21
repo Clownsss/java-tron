@@ -1,0 +1,10 @@
+version: "3.5"
+
+services:
+  welup:
+    image: docker.pkg.github.com/clownsss/java-tron/welupchain:dev
+    ports:
+      - "16666-16669:16666-16669/tcp"
+      - "16666-16669:16666-16669/udp"
+    volumes:
+      - ./nodes/fullnode:/node

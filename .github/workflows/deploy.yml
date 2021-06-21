@@ -1,0 +1,23 @@
+name: Dev Deploy
+
+on:
+  push:
+    branches: [build/*]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Build and Publish head Docker image
+        uses: VaultVulp/gp-docker-action@1.1.8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }} # Provide GITHUB_TOKEN to login into the GitHub Packages
+          image-name: welupchain # Provide Docker image name
+          image-tag: dev # Provide Docker image tag
+

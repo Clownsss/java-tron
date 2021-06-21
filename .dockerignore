@@ -1,3 +1,5 @@
-./*
-!docker-entrypoint.sh
-
+./.git/*
+./.github/*
+./build/*
+./framework/build/*
+./.gradlew/*
